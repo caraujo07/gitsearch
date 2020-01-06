@@ -9,7 +9,7 @@ export const SearchWrapper = styled.section`
 
 export const InputSearch = styled.input`
   width: 86.64%;
-  height: 48px;
+  height: 50px;
   font-size: 1.4rem;
   color: #5c5c5c;
   font-family: "Raleway", sans-serif;
