@@ -2,24 +2,26 @@ import styled from "styled-components";
 
 export const SearchWrapper = styled.section`
   margin-top: 20rem;
+  width: 750px;
   display: flex;
   flex-direction: column;
 `;
 
 export const InputSearch = styled.input`
-  width: 650px;
+  width: 86.64%;
   height: 48px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #5c5c5c;
   font-family: "Raleway", sans-serif;
   border: 1px solid transparent;
   border-radius: 3px;
   padding: 0 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
 `;
 
 export const ButtonSearch = styled.button`
-  width: 100px;
+  width: 13.36%;
   height: 50px;
   background-color: #ac53f2;
   border: 0;
@@ -37,6 +39,8 @@ export const ButtonSearch = styled.button`
   }
 `;
 
-export const BarWrapper = styled.div`
+export const BarWrapper = styled.form`
   display: flex;
+  width: 100%;
+  max-width: 100%;
 `;

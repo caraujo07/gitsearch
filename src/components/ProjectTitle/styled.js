@@ -7,5 +7,6 @@ export const ProjectTitle = styled.h1`
   span {
     font-family: "Raleway", sans-serif;
     font-weight: 200;
+    font-style: italic;
   }
 `;

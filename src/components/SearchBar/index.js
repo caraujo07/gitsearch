@@ -10,15 +10,12 @@ const SearchBar = () => (
     <ProjectTitle />
 
     <S.BarWrapper>
-      
-      <S.InputSearch type="text" />
+      <S.InputSearch type="text" placeholder="Type your GitHub username" />
 
-      <S.ButtonSearch>
+      <S.ButtonSearch type="submit">
         <SearchIcon />
       </S.ButtonSearch>
-
     </S.BarWrapper>
-
   </S.SearchWrapper>
 );
 
