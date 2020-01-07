@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import api from "../../services/api";
 
 function Profile({ match }) {
+  let history = useHistory();
+
   const [user, setUser] = useState([]);
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     async function loadUserData() {
-      const userData = await api.get(`/${match.params.username}`);
-      const reposData = await api.get(
-        `/${match.params.username}/repos?per_page=100`
-      );
-
-      setUser(userData.data);
-      setRepos(reposData.data);
+      try {
+        const userData = await api.get(`/${match.params.username}`);
+        const reposData = await api.get(
+          `/${match.params.username}/repos?per_page=100`
+        );
+        setUser(userData.data);
+        setRepos(reposData.data);
+        return { userData, reposData };
+      } catch (error) {
+        history.push("/404");
+      }
     }
     loadUserData();
   }, [match.params.username]);
@@ -28,9 +35,6 @@ function Profile({ match }) {
     login,
     public_repos
   } = user;
-
-  console.log(user);
-  console.log(repos);
 
   let stars = 0;
   repos.forEach(repo => {
