@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Search as SearchIcon } from "styled-icons/octicons/Search";
 
 import ProjectTitle from "../ProjectTitle";
 
 import * as S from "./styled";
 
-const SearchBar = () => (
-  <S.SearchWrapper>
-    <ProjectTitle />
+const SearchBar = () => {
+  const [username, setUsername] = useState("");
 
-    <S.BarWrapper>
-      <S.InputSearch type="text" placeholder="Type your GitHub username" />
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(username);
+  }
 
-      <S.ButtonSearch type="submit">
-        <SearchIcon />
-      </S.ButtonSearch>
-    </S.BarWrapper>
-  </S.SearchWrapper>
-);
+  return (
+    <S.SearchWrapper>
+      <ProjectTitle />
+
+      <S.BarWrapper onSubmit={handleSubmit}>
+        <S.InputSearch
+          type="text"
+          placeholder="Type your GitHub username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+        />
+
+        <S.ButtonSearch type="submit">
+          <SearchIcon />
+        </S.ButtonSearch>
+      </S.BarWrapper>
+    </S.SearchWrapper>
+  );
+};
 
 export default SearchBar;

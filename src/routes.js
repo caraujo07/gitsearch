@@ -8,7 +8,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Route path="/" exact component={Home} />
-      <Route path="/prof" component={Profile} />
+      <Route path="/profile" component={Profile} />
     </BrowserRouter>
   );
 }
