@@ -8,17 +8,16 @@ import api from "../../services/api";
 const SearchBar = ({ history }) => {
   const [username, setUsername] = useState("");
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    const userData = {};
-    try {
-      userData = await api.get(`/${username}`);
-      history.push(`/profile/${username}`);
-    } catch (err) {
-      history.push(`/404`);
-    }
-
-    console.log(userData);
+    api
+      .get(`/${username}`)
+      .then(response => {
+        history.push(`/profile/${username}`);
+      })
+      .catch(error => {
+        history.push("/404");
+      });
   }
 
   return (

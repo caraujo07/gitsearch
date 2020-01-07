@@ -37,7 +37,20 @@ function Profile({ match }) {
     stars = stars + repo.stargazers_count;
   });
 
-  return <h1>{match.params.username}</h1>;
+  return (
+    <>
+      <h1>{match.params.username}</h1>
+      <ul>
+        <li>{company}</li>
+        <li>{followers}</li>
+        <li>{location}</li>
+        <li>{name}</li>
+        <li>{login}</li>
+        <li>{stars}</li>
+        <li>{public_repos}</li>
+      </ul>
+    </>
+  );
 }
 
 export default Profile;
