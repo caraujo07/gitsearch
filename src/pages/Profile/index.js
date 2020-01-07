@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import api from "../../services/api";
 
@@ -21,7 +21,6 @@ function Profile({ match }) {
         console.log(match.url);
         return { userData, reposData };
       } catch (error) {
-        console.log(match);
         history.push("/404");
       }
     }
@@ -48,6 +47,7 @@ function Profile({ match }) {
     <>
       <h1>{match.params.username}</h1>
       <ul>
+        <li>{avatar_url}</li>
         <li>{company}</li>
         <li>{followers}</li>
         <li>{location}</li>

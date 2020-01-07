@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Search as SearchIcon } from "styled-icons/octicons/Search";
 
+import { Search as SearchIcon } from "styled-icons/octicons/Search";
 import * as S from "./styled";
 
 import api from "../../services/api";
@@ -19,6 +19,7 @@ const SearchBar = ({ history }) => {
         history.push("/404");
       });
   }
+  
 
   return (
     <S.SearchWrapper>
