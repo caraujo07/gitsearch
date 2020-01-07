@@ -19,7 +19,15 @@ function Profile({ match }) {
     loadUserData();
   }, [match.params.username]);
 
-  const { avatar_url, company, followers, location, name, login } = user;
+  const {
+    avatar_url,
+    company,
+    followers,
+    location,
+    name,
+    login,
+    public_repos
+  } = user;
 
   console.log(user);
   console.log(repos);

@@ -10,7 +10,15 @@ const SearchBar = ({ history }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    history.push(`/profile/${username}`);
+    const userData = {};
+    try {
+      userData = await api.get(`/${username}`);
+      history.push(`/profile/${username}`);
+    } catch (err) {
+      history.push(`/404`);
+    }
+
+    console.log(userData);
   }
 
   return (
