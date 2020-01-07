@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 import api from "../../services/api";
 
@@ -18,13 +18,16 @@ function Profile({ match }) {
         );
         setUser(userData.data);
         setRepos(reposData.data);
+        console.log(match.url);
         return { userData, reposData };
       } catch (error) {
+        console.log(match);
         history.push("/404");
       }
     }
+
     loadUserData();
-  }, [match.params.username]);
+  }, [match.params.username, history, match]);
 
   const {
     avatar_url,
