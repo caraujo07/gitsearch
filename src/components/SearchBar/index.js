@@ -5,12 +5,14 @@ import ProjectTitle from "../ProjectTitle";
 
 import * as S from "./styled";
 
-const SearchBar = () => {
+const SearchBar = ({ history }) => {
   const [username, setUsername] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log(username);
+
+    history.push("/profile");
   }
 
   return (
