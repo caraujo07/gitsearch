@@ -1,12 +1,13 @@
 import React from "react";
 
 import * as S from "./styled";
-
+import ProjectTitle from "../../components/ProjectTitle";
 import SearchBar from "../../components/SearchBar";
 
 const Home = ({ history }) => (
   <S.HomeWrapper>
-    <SearchBar history={history} />;
+    <ProjectTitle />
+    <SearchBar history={history} />
   </S.HomeWrapper>
 );
 

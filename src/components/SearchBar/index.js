@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import { Search as SearchIcon } from "styled-icons/octicons/Search";
 
-import ProjectTitle from "../ProjectTitle";
-
 import * as S from "./styled";
+
+import api from "../../services/api";
 
 const SearchBar = ({ history }) => {
   const [username, setUsername] = useState("");
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(username);
-
-    history.push("/profile");
+    history.push(`/profile/${username}`);
   }
 
   return (
     <S.SearchWrapper>
-      <ProjectTitle />
-
       <S.BarWrapper onSubmit={handleSubmit}>
         <S.InputSearch
           type="text"
