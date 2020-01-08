@@ -38,7 +38,7 @@ function Profile({ match }) {
     loadUserData();
   }, [match.params.username, history, match]);
 
-  console.log(repos);
+  console.log(user);
 
   const {
     avatar_url,
@@ -47,14 +47,15 @@ function Profile({ match }) {
     location,
     name,
     login,
-    public_repos
+    public_repos,
+    html_url
   } = user;
 
   let stars = 0;
   let repostars = [];
   repos.forEach(repo => {
     stars = stars + repo.stargazers_count;
-    repostars.push([repo.name, repo.description, repo.stargazers_count]);
+    repostars.push([repo.name, repo.description, repo.stargazers_count, repo.html_url]);
   });
 
   repostars.sort(function(a, b){
@@ -64,6 +65,7 @@ function Profile({ match }) {
   let repocards = repostars.slice(0, 5);
   console.log(repocards);
 
+
   return (
     <S.ProfileWrapper>
 
@@ -71,9 +73,11 @@ function Profile({ match }) {
       <ProjectTitle />
 
       <S.ProfileInfos>
-        <S.UserAvatar src={avatar_url} />
-        <S.UserName>{name}</S.UserName>
-        <S.UserLogin>{login}</S.UserLogin>
+        <S.UserLink href={html_url} target="_blank" rel="noreferrer noopener" title={name}>
+          <S.UserAvatar src={avatar_url} alt={name}/>
+          <S.UserName>{name}</S.UserName>
+          <S.UserLogin>{login}</S.UserLogin>
+        </S.UserLink>
 
         <S.UserInfo>
 
@@ -106,22 +110,22 @@ function Profile({ match }) {
     <S.MainWrapper>
       <SearchBar />
 
-      <S.RepoCard>
-        <S.RepoTitle>Repo</S.RepoTitle>
-      </S.RepoCard>
+        {
+          repocards.map((repocard, i) => {
+            return(
+              <S.RepoCard href={repocard[3]} target="_blank" rel="noreferrer noopener" key={i}>
+                <S.RepoTitle>{repocard[0]}</S.RepoTitle>
+                <S.RepoDescription>{repocard[1]}</S.RepoDescription>
+                <S.RepoStars>
+                  <StarIcon /> {repocard[2]}
+                </S.RepoStars>
+              </S.RepoCard>
+            );
+          })
+        }
+
     </S.MainWrapper>
 
-      {/* <h1>{match.params.username}</h1>
-      <ul>
-        <li>{avatar_url}</li>
-        <li>{company}</li>
-        <li>{followers}</li>
-        <li>{location}</li>
-        <li>{name}</li>
-        <li>{login}</li>
-        <li>{stars}</li>
-        <li>{public_repos}</li>
-      </ul> */}
     </S.ProfileWrapper>
   );
 }

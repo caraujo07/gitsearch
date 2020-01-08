@@ -34,7 +34,7 @@ const SearchBar = () => {
           onChange={e => setUsername(e.target.value)}
         />
 
-        <S.ButtonSearch type="submit">
+        <S.ButtonSearch type="submit" title="Search">
           <SearchIcon />
         </S.ButtonSearch>
       </S.BarWrapper>
