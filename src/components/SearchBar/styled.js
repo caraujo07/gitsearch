@@ -17,6 +17,7 @@ export const InputSearch = styled.input`
   padding: 0 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
+  outline: none;
 `;
 
 export const ButtonSearch = styled.button`
@@ -27,6 +28,7 @@ export const ButtonSearch = styled.button`
   cursor: pointer;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+  outline: none;
   &:hover {
     background-color: #84e;
     transition: all 0.2s ease-in-out;

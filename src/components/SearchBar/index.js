@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import { Search as SearchIcon } from "styled-icons/octicons/Search";
 import * as S from "./styled";
 
 import api from "../../services/api";
 
-const SearchBar = ({ history }) => {
+const SearchBar = () => {
+  let history = useHistory();
+
   const [username, setUsername] = useState("");
 
   function handleSubmit(e) {

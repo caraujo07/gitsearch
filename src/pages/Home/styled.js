@@ -6,5 +6,5 @@ export const HomeWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   align-items: center;
-  margin-top: 15%;
+  justify-content: center;
 `;
