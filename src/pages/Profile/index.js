@@ -38,6 +38,8 @@ function Profile({ match }) {
     loadUserData();
   }, [match.params.username, history, match]);
 
+  console.log(repos);
+
   const {
     avatar_url,
     company,
@@ -49,9 +51,18 @@ function Profile({ match }) {
   } = user;
 
   let stars = 0;
+  let repostars = [];
   repos.forEach(repo => {
     stars = stars + repo.stargazers_count;
+    repostars.push([repo.name, repo.description, repo.stargazers_count]);
   });
+
+  repostars.sort(function(a, b){
+    return b[2]-a[2]}
+    )
+
+  let repocards = repostars.slice(0, 5);
+  console.log(repocards);
 
   return (
     <S.ProfileWrapper>
@@ -94,6 +105,10 @@ function Profile({ match }) {
 
     <S.MainWrapper>
       <SearchBar />
+
+      <S.RepoCard>
+        <S.RepoTitle>Repo</S.RepoTitle>
+      </S.RepoCard>
     </S.MainWrapper>
 
       {/* <h1>{match.params.username}</h1>

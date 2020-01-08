@@ -13,7 +13,8 @@ export const InputSearch = styled.input`
   color: #5c5c5c;
   font-family: "Raleway", sans-serif;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-top-left: 3px;
+  border-bottom-left: 3px;
   padding: 0 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
@@ -24,6 +25,7 @@ export const ButtonSearch = styled.button`
   width: 13.36%;
   height: 50px;
   background-color: #ac53f2;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   border: 0;
   cursor: pointer;
   border-top-right-radius: 3px;

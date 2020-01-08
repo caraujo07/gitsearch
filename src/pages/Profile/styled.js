@@ -23,6 +23,10 @@ export const ProfileInfos = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  h1 {
+    font-size: 35px
+    margin-bottom: 7px;
+  }
 `
 
 export const UserAvatar = styled.img`
@@ -63,4 +67,12 @@ export const MainWrapper = styled.section`
   padding: 35px 27px 0 67px;
   display: flex;
   flex-direction: column;
+`
+
+export const RepoCard = styled.section`
+ margin-top: 50px;
+`
+
+export const RepoTitle = styled.h1`
+color: #84e;
 `
