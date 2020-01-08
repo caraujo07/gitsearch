@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const HomeWrapper = styled.div`
+  margin-top: 22%;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
   align-items: center;
-  justify-content: center;
 `;

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import ProjectTitle from '../../components/ProjectTitle';
-import SearchBar from '../../components/SearchBar';
-import * as S from './styled';
+import ProjectTitle from "../../components/ProjectTitle";
+import SearchBar from "../../components/SearchBar";
+import * as S from "./styled";
 
-import { ShapeCircle as OrganizationIcon } from 'styled-icons/boxicons-regular/ShapeCircle';
-import { Planet as PlanetIcon } from 'styled-icons/boxicons-regular/Planet';
-import { Star as StarIcon } from 'styled-icons/fa-regular/Star';
-import { PackageIcon as BoxIcon } from 'styled-icons/boxicons-regular/PackageIcon';
-import { PeopleOutline as FollowersIcon } from 'styled-icons/material/PeopleOutline';
+import organizationIcon from "../../assets/Icons/organization.svg";
+import locationIcon from "../../assets/Icons/location.svg";
+import repoIcon from "../../assets/Icons/repo.svg";
+import followersIcon from "../../assets/Icons/followers.svg";
+import starIcon from "../../assets/Icons/star.svg";
 
 import api from "../../services/api";
 
@@ -26,7 +26,7 @@ function Profile({ match }) {
         const reposData = await api.get(
           `/${match.params.username}/repos?per_page=100`
         );
-        
+
         setUser(userData.data);
         setRepos(reposData.data);
 
@@ -54,75 +54,93 @@ function Profile({ match }) {
   let repostars = [];
   repos.forEach(repo => {
     stars = stars + repo.stargazers_count;
-    repostars.push([repo.name, repo.description, repo.stargazers_count, repo.html_url]);
+    repostars.push([
+      repo.id,
+      repo.name,
+      repo.description,
+      repo.stargazers_count,
+      repo.html_url
+    ]);
   });
 
-  repostars.sort(function(a, b){
-    return b[2]-a[2]}
-    )
+  repostars.sort(function(a, b) {
+    return b[3] - a[3];
+  });
 
   let repocards = repostars.slice(0, 5);
 
+  console.log(repocards);
+
   return (
     <S.ProfileWrapper>
+      <S.SidebarWrapper>
+        <ProjectTitle />
 
-    <S.SidebarWrapper>
-      <ProjectTitle />
+        <S.ProfileInfos>
+          <S.UserLink
+            href={html_url}
+            target="_blank"
+            rel="noreferrer noopener"
+            title={name}
+          >
+            <S.UserAvatar src={avatar_url} alt={name} />
+            <S.UserName>{name}</S.UserName>
+            <S.UserLogin>{login}</S.UserLogin>
+          </S.UserLink>
 
-      <S.ProfileInfos>
-        <S.UserLink href={html_url} target="_blank" rel="noreferrer noopener" title={name}>
-          <S.UserAvatar src={avatar_url} alt={name}/>
-          <S.UserName>{name}</S.UserName>
-          <S.UserLogin>{login}</S.UserLogin>
-        </S.UserLink>
+          <S.UserInfo>
+            <S.UserInfoItem>
+              <img src={organizationIcon} className="icon" alt="Organization" />
+              {company}
+            </S.UserInfoItem>
 
-        <S.UserInfo>
+            <S.UserInfoItem>
+              <img src={locationIcon} className="icon" alt="Location" />
+              {location}
+            </S.UserInfoItem>
 
-          <S.UserInfoItem>
-            <OrganizationIcon />{company}
-          </S.UserInfoItem>
+            <S.UserInfoItem>
+              <img src={starIcon} className="icon" alt="Stars" />
 
-          <S.UserInfoItem>
-            <PlanetIcon />{location}
-          </S.UserInfoItem>
+              {stars}
+            </S.UserInfoItem>
 
-          <S.UserInfoItem>
-            <StarIcon />{stars}
-          </S.UserInfoItem>
+            <S.UserInfoItem>
+              <img src={repoIcon} className="icon" alt="Repositories" />
 
-          <S.UserInfoItem>
-            <BoxIcon />{public_repos}
-          </S.UserInfoItem>
+              {public_repos}
+            </S.UserInfoItem>
 
-          <S.UserInfoItem>
-            <FollowersIcon />{followers}
-          </S.UserInfoItem>
+            <S.UserInfoItem>
+              <img src={followersIcon} className="icon" alt="Followers" />
 
-        </S.UserInfo>
+              {followers}
+            </S.UserInfoItem>
+          </S.UserInfo>
+        </S.ProfileInfos>
+      </S.SidebarWrapper>
 
-      </S.ProfileInfos>
+      <S.MainWrapper>
+        <SearchBar />
 
-    </S.SidebarWrapper>
-
-    <S.MainWrapper>
-      <SearchBar />
-
-        {
-          repocards.map((repocard, i) => {
-            return(
-              <S.RepoCard href={repocard[3]} target="_blank" rel="noreferrer noopener" key={i}>
-                <S.RepoTitle>{repocard[0]}</S.RepoTitle>
-                <S.RepoDescription>{repocard[1]}</S.RepoDescription>
-                <S.RepoStars>
-                  <StarIcon /> {repocard[2]}
-                </S.RepoStars>
-              </S.RepoCard>
-            );
-          })
-        }
-
-    </S.MainWrapper>
-
+        {repocards.map((repocard, i) => {
+          return (
+            <S.RepoCard
+              href={repocard[4]}
+              target="_blank"
+              rel="noreferrer noopener"
+              key={repocard[0]}
+            >
+              <S.RepoTitle>{repocard[1]}</S.RepoTitle>
+              <S.RepoDescription>{repocard[2]}</S.RepoDescription>
+              <S.RepoStars>
+                <img src={starIcon} className="icon" alt="Stars" />
+                {repocard[3]}
+              </S.RepoStars>
+            </S.RepoCard>
+          );
+        })}
+      </S.MainWrapper>
     </S.ProfileWrapper>
   );
 }

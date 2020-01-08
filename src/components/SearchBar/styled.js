@@ -1,20 +1,21 @@
 import styled from "styled-components";
 
-export const SearchWrapper = styled.section`
-  width: 750px;
+export const BarWrapper = styled.form`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
 `;
 
 export const InputSearch = styled.input`
-  width: 86.64%;
+  width: 67.4%;
   height: 50px;
   font-size: 1.4rem;
   color: #5c5c5c;
   font-family: "Raleway", sans-serif;
   border: 1px solid transparent;
-  border-top-left: 3px;
-  border-bottom-left: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   padding: 0 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
@@ -22,7 +23,7 @@ export const InputSearch = styled.input`
 `;
 
 export const ButtonSearch = styled.button`
-  width: 13.36%;
+  width: 100px;
   height: 50px;
   background-color: #ac53f2;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
@@ -32,7 +33,7 @@ export const ButtonSearch = styled.button`
   border-bottom-right-radius: 3px;
   outline: none;
   &:hover {
-    background-color: #9B4AD9;
+    background-color: #9b4ad9;
     transition: all 0.2s ease-in-out;
   }
   svg {
@@ -40,10 +41,4 @@ export const ButtonSearch = styled.button`
     width: 30px;
     color: #fff;
   }
-`;
-
-export const BarWrapper = styled.form`
-  display: flex;
-  width: 100%;
-  max-width: 100%;
 `;
