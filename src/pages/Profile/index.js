@@ -26,9 +26,10 @@ function Profile({ match }) {
         const reposData = await api.get(
           `/${match.params.username}/repos?per_page=100`
         );
+        
         setUser(userData.data);
         setRepos(reposData.data);
-        console.log(match.url);
+
         return { userData, reposData };
       } catch (error) {
         history.push("/404");
@@ -37,8 +38,6 @@ function Profile({ match }) {
 
     loadUserData();
   }, [match.params.username, history, match]);
-
-  console.log(user);
 
   const {
     avatar_url,
@@ -63,8 +62,6 @@ function Profile({ match }) {
     )
 
   let repocards = repostars.slice(0, 5);
-  console.log(repocards);
-
 
   return (
     <S.ProfileWrapper>

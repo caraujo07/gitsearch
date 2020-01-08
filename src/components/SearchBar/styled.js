@@ -32,7 +32,7 @@ export const ButtonSearch = styled.button`
   border-bottom-right-radius: 3px;
   outline: none;
   &:hover {
-    background-color: #84e;
+    background-color: #9B4AD9;
     transition: all 0.2s ease-in-out;
   }
   svg {

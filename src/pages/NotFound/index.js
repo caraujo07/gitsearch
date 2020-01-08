@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 
 import ProjectTitle from '../../components/ProjectTitle';
 import SearchBar from '../../components/SearchBar';

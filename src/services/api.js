@@ -3,7 +3,7 @@ import axios from "axios";
 const api = axios.create({
   baseURL: "https://api.github.com/users/",
   auth: {
-    username: "caraujo07",
+    username: "ahoycap",
     password: "Ce87233062"
   }
 });
