@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProjectTitle = styled.h1`
   font-size: 60px;
-  font-family: Monaco, "Share Tech Mono", monospace;
+  font-family: Monaco, monospace;
   margin: 10px auto;
   span {
     font-family: "Raleway", sans-serif;
@@ -13,9 +13,9 @@ export const ProjectTitle = styled.h1`
 
 export const ProjectLink = styled.a`
   text-decoration: none;
-  color: #000
+  color: #000;
 
   &:hover {
     opacity: 0.8;
   }
-`
+`;

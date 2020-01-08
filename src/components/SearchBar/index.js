@@ -24,19 +24,19 @@ const SearchBar = () => {
   }
 
   return (
-      <S.BarWrapper onSubmit={handleSubmit}>
-        <S.InputSearch
-          type="text"
-          placeholder="Type your GitHub username"
-          tabindex="-1"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
+    <S.BarWrapper onSubmit={handleSubmit}>
+      <S.InputSearch
+        type="text"
+        placeholder="Type your username"
+        tabindex="-1"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+      />
 
-        <S.ButtonSearch type="submit" title="Search">
-          <img src={searchIcon} alt="search" />
-        </S.ButtonSearch>
-      </S.BarWrapper>
+      <S.ButtonSearch type="submit" title="Search">
+        <img src={searchIcon} alt="search" />
+      </S.ButtonSearch>
+    </S.BarWrapper>
   );
 };
 

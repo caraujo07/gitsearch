@@ -1,30 +1,32 @@
 import React from "react";
 
-import ProjectTitle from '../../components/ProjectTitle';
-import SearchBar from '../../components/SearchBar';
-import * as S from './styled';
+import ProjectTitle from "../../components/ProjectTitle";
+import SearchBar from "../../components/SearchBar";
+import * as S from "./styled";
 
+import { Container, Row, Col } from "../../assets/Grid";
 
-
-
-function Profile({ match }) {
-
-
+function Profile() {
   return (
-    <S.ProfileWrapper>
+    <Container>
+      <Row>
+        <Col desktop="12">
+          <S.HeaderWrapper>
+            <ProjectTitle />
+            <SearchBar />
+          </S.HeaderWrapper>
+        </Col>
+        <Col desktop="12">
+          <S.NotFoundMsg>404! User not found! :(</S.NotFoundMsg>
+        </Col>
 
-      <S.SidebarWrapper>
-        <ProjectTitle />
-      </S.SidebarWrapper>
-
-    <S.MainWrapper>
-
-      <SearchBar />
-      <S.NotFoundMsg>404! User not found! :(</S.NotFoundMsg>
-
-    </S.MainWrapper>
-
-    </S.ProfileWrapper>
+        {/* <S.ProfileWrapper>
+          <S.SidebarWrapper></S.SidebarWrapper>
+          
+          <S.MainWrapper></S.MainWrapper>
+        </S.ProfileWrapper> */}
+      </Row>
+    </Container>
   );
 }
 
