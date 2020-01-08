@@ -19,12 +19,6 @@ function Profile() {
         <Col desktop="12">
           <S.NotFoundMsg>404! User not found! :(</S.NotFoundMsg>
         </Col>
-
-        {/* <S.ProfileWrapper>
-          <S.SidebarWrapper></S.SidebarWrapper>
-          
-          <S.MainWrapper></S.MainWrapper>
-        </S.ProfileWrapper> */}
       </Row>
     </Container>
   );
