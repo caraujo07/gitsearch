@@ -107,7 +107,7 @@ function Profile({ match }) {
 
                 <S.UserInfoItem>
                   <img src={locationIcon} className="icon" alt="Location" />
-                  {location ? location : "0"}
+                  {location ? location : "No location"}
                 </S.UserInfoItem>
 
                 <S.UserInfoItem>
