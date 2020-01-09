@@ -102,30 +102,30 @@ function Profile({ match }) {
                     className="icon"
                     alt="Organization"
                   />
-                  {company}
+                  {company ? company : "No company"}
                 </S.UserInfoItem>
 
                 <S.UserInfoItem>
                   <img src={locationIcon} className="icon" alt="Location" />
-                  {location}
+                  {location ? location : "0"}
                 </S.UserInfoItem>
 
                 <S.UserInfoItem>
                   <img src={starIcon} className="icon" alt="Stars" />
 
-                  {stars}
+                  {stars ? stars : "0"}
                 </S.UserInfoItem>
 
                 <S.UserInfoItem>
                   <img src={repoIcon} className="icon" alt="Repositories" />
 
-                  {public_repos}
+                  {public_repos ? public_repos : "0"}
                 </S.UserInfoItem>
 
                 <S.UserInfoItem>
                   <img src={followersIcon} className="icon" alt="Followers" />
 
-                  {followers}
+                  {followers ? followers : "0"}
                 </S.UserInfoItem>
               </S.UserInfo>
             </S.ProfileInfos>
