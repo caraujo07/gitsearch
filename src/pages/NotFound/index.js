@@ -4,7 +4,7 @@ import ProjectTitle from "../../components/ProjectTitle";
 import SearchBar from "../../components/SearchBar";
 import * as S from "./styled";
 
-import { Container, Row, Col } from "../../assets/Grid";
+import { Container, Row, Col } from "../../Grid/";
 
 function Profile() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as S from "./styled";
-import { Container, Row, Col } from "../../assets/Grid/";
+import { Container, Row, Col } from "../../Grid/";
 
 import ProjectTitle from "../../components/ProjectTitle";
 import SearchBar from "../../components/SearchBar";

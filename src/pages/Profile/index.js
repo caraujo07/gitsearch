@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import ProjectTitle from "../../components/ProjectTitle";
 import SearchBar from "../../components/SearchBar";
-import { Container, Row, Col } from "../../assets/Grid";
+import { Container, Row, Col } from "../../Grid/";
 import * as S from "./styled";
 
 import organizationIcon from "../../assets/Icons/organization.svg";

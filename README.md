@@ -1,6 +1,7 @@
 <h1 align="center">
   <p align="center">Github Search</p>
-  <a href="#"><img src="./src/assets/Icons/github-search.png" alt="Github Search"></a>
+  <a href="#"><img src="https://raw.githubusercontent.com/caraujo07/gitsearch/master/src/assets/Icons/github-serach.png" alt="Github Search"></a>
+  <a href="#"><img src="https://raw.githubusercontent.com/caraujo07/gitsearch/master/src/assets/Icons/github-serach.png" alt="Github Search"></a>
 </h1>
 
 ## Introduction
