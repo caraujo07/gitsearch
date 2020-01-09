@@ -6,4 +6,10 @@ export const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: 499px) {
+    h1 {
+      font-size: 40px;
+    }
+  }
 `;

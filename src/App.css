@@ -131,10 +131,9 @@ table {
 .App {
   display: flex;
   justify-content: center;
+  margin-bottom: 60px;
 }
 
-.App .container {
-  width: 1152px;
-  display: flex;
-  justify-content: center;
+* {
+  border: 1px solid;
 }

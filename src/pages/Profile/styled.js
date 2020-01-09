@@ -1,42 +1,40 @@
 import styled from "styled-components";
 
-export const ProfileWrapper = styled.section`
+export const HeaderWrapper = styled.div`
   display: flex;
-  width: 1152px;
-  height: 100vh;
-
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 35px;
+  padding: 0 20px 0 25px;
+  h1 {
+    font-size: 40px;
+    text-align: center;
+  }
   input {
-    font-size: 20px;
+    width: 87%;
   }
 
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+export const ProfileInfos = styled.div`
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Raleway", sans-serif;
+
+  h1 {
+    font-size: 35px;
+    margin-bottom: 7px;
+  }
   img.icon {
     width: 24px;
     height: 24px;
     margin-right: 7px;
     color: #000;
-  }
-`;
-
-export const SidebarWrapper = styled.aside`
-  padding: 35px 25px;
-  display: flex;
-  flex-direction: column;
-
-  font-family: "Raleway", sans-serif;
-  h1 {
-    font-size: 40px;
-    margin: 0;
-  }
-`;
-
-export const ProfileInfos = styled.section`
-  margin-top: 53px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  h1 {
-    font-size: 35px;
-    margin-bottom: 7px;
   }
 `;
 
@@ -79,15 +77,25 @@ export const UserInfoItem = styled.li`
   color: #5c5c5c;
 `;
 
-export const MainWrapper = styled.section`
-  padding: 35px 27px 0 67px;
+export const ContentWrapper = styled.section`
   display: flex;
   flex-direction: column;
   font-family: "Raleway", sans-serif !important;
+
+  @media only screen and (min-width: 768px) and (max-width: 999px) {
+    margin-left: 30px;
+  }
+
+  @media only screen and (max-width: 499px) {
+    padding: 0 25px;
+    margin-top: 40px;
+  }
 `;
 
 export const RepoCard = styled.a`
-  margin-top: 50px;
+  :not(:first-child) {
+    margin-top: 30px;
+  }
   text-decoration: none;
   font-family: "Raleway", sans-serif !important;
   &:hover {
@@ -117,10 +125,14 @@ export const RepoStars = styled.span`
   color: #5c5c5c;
   font-size: 20px;
 
-  svg {
+  img.icon {
     color: #000;
     width: 25px;
     height: 25px;
     margin-right: 7px;
   }
+`;
+
+export const MainWrapper = styled.section`
+  margin-top: 30px;
 `;

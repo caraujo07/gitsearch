@@ -15,10 +15,10 @@ const SearchBar = () => {
     e.preventDefault();
     api
       .get(`/${username}`)
-      .then(response => {
+      .then(() => {
         history.push(`/profile/${username}`);
       })
-      .catch(error => {
+      .catch(() => {
         history.push("/404");
       });
   }

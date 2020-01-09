@@ -41,12 +41,11 @@ function getWidthGrid(value) {
 
 export const Col = styled.div`
   float: left;
-  padding: 0.25rem;
   min-height: 1px;
   box-sizing: border-box;
   width: 100%;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (max-width: 768px) {
     ${({ mobile }) => mobile && getWidthGrid(mobile)}
   }
 
@@ -54,7 +53,7 @@ export const Col = styled.div`
     ${({ tablet }) => tablet && getWidthGrid(tablet)}
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1000px) {
     ${({ desktop }) => desktop && getWidthGrid(desktop)}
   }
 `;

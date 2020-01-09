@@ -7,6 +7,7 @@ export const HeaderWrapper = styled.div`
   margin-top: 35px;
   h1 {
     font-size: 40px;
+    text-align: center;
   }
   input {
     width: 87%;

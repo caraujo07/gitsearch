@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import ProjectTitle from "../../components/ProjectTitle";
 import SearchBar from "../../components/SearchBar";
+import { Container, Row, Col } from "../../assets/Grid";
 import * as S from "./styled";
 
 import organizationIcon from "../../assets/Icons/organization.svg";
@@ -72,76 +73,114 @@ function Profile({ match }) {
   console.log(repocards);
 
   return (
-    <S.ProfileWrapper>
-      <S.SidebarWrapper>
-        <ProjectTitle />
+    <Container>
+      <Row>
+        <Col desktop="12" mobile="12">
+          <S.HeaderWrapper>
+            <ProjectTitle />
+            <SearchBar />
+          </S.HeaderWrapper>
+        </Col>
+      </Row>
+      <Row>
+        <S.MainWrapper>
+          <Col desktop="4" tablet="5">
+            <S.ProfileInfos>
+              <S.UserLink
+                href={html_url}
+                target="_blank"
+                rel="noreferrer noopener"
+                title={name}
+              >
+                <S.UserAvatar src={avatar_url} alt={name} />
+                <S.UserName>{name}</S.UserName>
+                <S.UserLogin>{login}</S.UserLogin>
+              </S.UserLink>
 
-        <S.ProfileInfos>
-          <S.UserLink
-            href={html_url}
-            target="_blank"
-            rel="noreferrer noopener"
-            title={name}
-          >
-            <S.UserAvatar src={avatar_url} alt={name} />
-            <S.UserName>{name}</S.UserName>
-            <S.UserLogin>{login}</S.UserLogin>
-          </S.UserLink>
+              <S.UserInfo>
+                <S.UserInfoItem>
+                  <img
+                    src={organizationIcon}
+                    className="icon"
+                    alt="Organization"
+                  />
+                  {company}
+                </S.UserInfoItem>
 
-          <S.UserInfo>
-            <S.UserInfoItem>
-              <img src={organizationIcon} className="icon" alt="Organization" />
-              {company}
-            </S.UserInfoItem>
+                <S.UserInfoItem>
+                  <img src={locationIcon} className="icon" alt="Location" />
+                  {location}
+                </S.UserInfoItem>
 
-            <S.UserInfoItem>
-              <img src={locationIcon} className="icon" alt="Location" />
-              {location}
-            </S.UserInfoItem>
+                <S.UserInfoItem>
+                  <img src={starIcon} className="icon" alt="Stars" />
 
-            <S.UserInfoItem>
-              <img src={starIcon} className="icon" alt="Stars" />
+                  {stars}
+                </S.UserInfoItem>
 
-              {stars}
-            </S.UserInfoItem>
+                <S.UserInfoItem>
+                  <img src={repoIcon} className="icon" alt="Repositories" />
 
-            <S.UserInfoItem>
-              <img src={repoIcon} className="icon" alt="Repositories" />
+                  {public_repos}
+                </S.UserInfoItem>
 
-              {public_repos}
-            </S.UserInfoItem>
+                <S.UserInfoItem>
+                  <img src={followersIcon} className="icon" alt="Followers" />
 
-            <S.UserInfoItem>
-              <img src={followersIcon} className="icon" alt="Followers" />
+                  {followers}
+                </S.UserInfoItem>
+              </S.UserInfo>
+            </S.ProfileInfos>
+          </Col>
+          <Col desktop="8" tablet="7">
+            <S.ContentWrapper>
+              {repocards.map((repocard, i) => {
+                return (
+                  <S.RepoCard
+                    href={repocard[4]}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    key={repocard[0]}
+                  >
+                    <S.RepoTitle>{repocard[1]}</S.RepoTitle>
+                    <S.RepoDescription>{repocard[2]}</S.RepoDescription>
+                    <S.RepoStars>
+                      <img src={starIcon} className="icon" alt="Stars" />
+                      {repocard[3]}
+                    </S.RepoStars>
+                  </S.RepoCard>
+                );
+              })}
+            </S.ContentWrapper>
+          </Col>
+        </S.MainWrapper>
+      </Row>
 
-              {followers}
-            </S.UserInfoItem>
-          </S.UserInfo>
-        </S.ProfileInfos>
-      </S.SidebarWrapper>
+      {/*
 
-      <S.MainWrapper>
-        <SearchBar />
+        <S.MainWrapper>
+          <SearchBar />
 
-        {repocards.map((repocard, i) => {
-          return (
-            <S.RepoCard
-              href={repocard[4]}
-              target="_blank"
-              rel="noreferrer noopener"
-              key={repocard[0]}
-            >
-              <S.RepoTitle>{repocard[1]}</S.RepoTitle>
-              <S.RepoDescription>{repocard[2]}</S.RepoDescription>
-              <S.RepoStars>
-                <img src={starIcon} className="icon" alt="Stars" />
-                {repocard[3]}
-              </S.RepoStars>
-            </S.RepoCard>
-          );
-        })}
-      </S.MainWrapper>
-    </S.ProfileWrapper>
+          {repocards.map((repocard, i) => {
+            return (
+              <S.RepoCard
+                href={repocard[4]}
+                target="_blank"
+                rel="noreferrer noopener"
+                key={repocard[0]}
+              >
+                <S.RepoTitle>{repocard[1]}</S.RepoTitle>
+                <S.RepoDescription>{repocard[2]}</S.RepoDescription>
+                <S.RepoStars>
+                  <img src={starIcon} className="icon" alt="Stars" />
+                  {repocard[3]}
+                </S.RepoStars>
+              </S.RepoCard>
+            );
+          })}
+        </S.MainWrapper>
+      </S.ProfileWrapper> */}
+    </Container>
   );
 }
 
