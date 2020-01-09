@@ -23,4 +23,5 @@ export const NotFoundMsg = styled.h1`
   text-align: center;
   font-size: 40px;
   margin-top: 125px;
+  font-family: "Relaway", sans-serif;
 `;

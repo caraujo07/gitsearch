@@ -70,8 +70,6 @@ function Profile({ match }) {
 
   let repocards = repostars.slice(0, 5);
 
-  console.log(repocards);
-
   return (
     <Container>
       <Row>
